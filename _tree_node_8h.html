@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>MCTS: include Directory Reference</title>
+<title>MCTS: include/TreeNode.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,7 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -55,6 +55,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           </span>
         </div>
       </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -77,21 +82,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">include Directory Reference</div>  </div>
+<div class="title">TreeNode.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file defines the <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">mcts::UCTreeNode</a> class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br/>
+<code>#include &lt;cassert&gt;</code><br/>
+<code>#include &lt;limits&gt;</code><br/>
+<code>#include &lt;stack&gt;</code><br/>
+</div>
+<p><a href="_tree_node_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:mainpage_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mainpage_8h.html">mainpage.h</a> <a href="mainpage_8h_source.html">[code]</a></td></tr>
-<tr class="memdesc:mainpage_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">This header defines the main page for this documentation, and is for that purpose only. <br/></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode&lt; N_ACTIONS &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a node in a UCT tree.  <a href="classmcts_1_1_u_c_tree_node.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:_tree_node_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_tree_node_8h.html">TreeNode.h</a> <a href="_tree_node_8h_source.html">[code]</a></td></tr>
-<tr class="memdesc:_tree_node_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">This file defines the <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">mcts::UCTreeNode</a> class. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacemcts"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemcts.html">mcts</a></td></tr>
+<tr class="memdesc:namespacemcts"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for all public functions and types defined in the MCTS library. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a298520e556843cac300d2502091d0b92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a298520e556843cac300d2502091d0b92"></a>
+const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemcts.html#a298520e556843cac300d2502091d0b92">mcts::EPSILON</a> = 1e-6</td></tr>
+<tr class="memdesc:a298520e556843cac300d2502091d0b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to generate small random numbers to break ties when selecting actions. <br/></td></tr>
+<tr class="separator:a298520e556843cac300d2502091d0b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file defines the <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">mcts::UCTreeNode</a> class. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Oct 3 2012 13:22:24 for MCTS by &#160;<a href="http://www.doxygen.org/index.html">
