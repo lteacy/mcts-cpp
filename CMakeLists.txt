@@ -68,15 +68,15 @@ LINK_DIRECTORIES(${LIBRARY_OUTPUT_PATH})
 #############################
 # compile project library   #
 #############################
-FILE(GLOB MCTS_SRC src/*.cpp)
-ADD_LIBRARY(MCTS SHARED ${MCTS_SRC})
-TARGET_LINK_LIBRARIES(MCTS ${Boost_LIBRARIES})
+#FILE(GLOB MCTS_SRC src/*.cpp)
+#ADD_LIBRARY(MCTS SHARED ${MCTS_SRC})
+#TARGET_LINK_LIBRARIES(MCTS ${Boost_LIBRARIES})
 
 ###############################
 # build test harnesses        #
 ###############################
 ADD_EXECUTABLE(mdpHarness tests/mdpHarness.cpp)
-TARGET_LINK_LIBRARIES(mdpHarness DecBRL)
+#TARGET_LINK_LIBRARIES(mdpHarness MCTS)
 
 ###############################
 # enable testing              #
