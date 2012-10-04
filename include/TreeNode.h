@@ -95,7 +95,7 @@ private:
     * @pre This must not be a leaf node.
     * @returns the index of the selected child's action
     */
-   int selectAction()
+   int selectAction() 
    {
       //***********************************************************************
       // Ensure preconditions are meet: can't select a child, if this is a
@@ -251,7 +251,7 @@ public:
    /**
     * Returns true iff this is a leaf node with no children.
     */
-   bool isLeaf()
+   bool isLeaf() const
    {
       return isLeaf_i;
    }
@@ -337,7 +337,7 @@ public:
     * Returns the current best action for the next step.
     * @returns the index of the best action.
     */
-   int bestAction()
+   int bestAction() 
    {
       //***********************************************************************
       // If this is a leaf node, we have no information to go on, so we
@@ -399,7 +399,7 @@ public:
    /**
     * Returns the expected value for this tree.
     */
-   double vValue()
+   double vValue() const
    {
       return totValue_i/nVisits_i;
    }
@@ -409,7 +409,7 @@ public:
     * @param[in] action the index of the action whose value should be returned.
     * @pre \c action must be between 0 and \c N_ACTIONS (the number of actions).
     */
-   double qValue(int action)
+   double qValue(int action) const
    {
       assert(0<=action);
       assert(N_ACTIONS>action);
@@ -419,7 +419,7 @@ public:
    /**
     * Counts the number of nodes in the tree with this node as its root.
     */
-   int numOfNodes()
+   int numOfNodes() const
    {
       //***********************************************************************
       // If this is a leaf node, then there is only one node in the tree
@@ -449,7 +449,7 @@ public:
     * with its default value of 0.
     * @param[in] parentDepth depth of parent node.
     */
-   int maxDepth(int parentDepth=0)
+   int maxDepth(int parentDepth=0) const
    {
       //***********************************************************************
       // If this is a leaf node, then the result is just the parent's depth
@@ -477,6 +477,28 @@ public:
 
    } // maxDepth
 
+   /**
+    * Destructor deletes all child nodes in addition to this one.
+    */
+   virtual ~UCTreeNode()
+   {
+
+      if(isLeaf_i)
+      {
+         return;
+      }
+
+      for(int k=0; k<N_ACTIONS; ++k)
+      {
+         if(0!=vpChildren_i[k])
+         {
+            delete vpChildren_i[k];
+            vpChildren_i[k]=0;
+         }
+      }
+
+   } // destructor 
+
 }; // class UCTreeNode
 
 /**
@@ -486,7 +508,7 @@ public:
 template<int N_ACTIONS> std::ostream& operator<<
 (
  std::ostream& out,
- UCTreeNode<N_ACTIONS> tree
+ const UCTreeNode<N_ACTIONS>& tree
 )
 {
 
