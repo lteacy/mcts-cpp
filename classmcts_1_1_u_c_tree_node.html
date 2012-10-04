@@ -99,10 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aef283e6cc34c982f96dcba75d6f27ff9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef283e6cc34c982f96dcba75d6f27ff9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#aef283e6cc34c982f96dcba75d6f27ff9">UCTreeNode</a> ()</td></tr>
-<tr class="memdesc:aef283e6cc34c982f96dcba75d6f27ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">UCTreeNode</a> leaf node. <br/></td></tr>
-<tr class="separator:aef283e6cc34c982f96dcba75d6f27ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92759d401e1115b691b92652857c8b99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a92759d401e1115b691b92652857c8b99">UCTreeNode</a> (double inGamma=<a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a>)</td></tr>
+<tr class="memdesc:a92759d401e1115b691b92652857c8b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">UCTreeNode</a> leaf node.  <a href="#a92759d401e1115b691b92652857c8b99"></a><br/></td></tr>
+<tr class="separator:a92759d401e1115b691b92652857c8b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1ad3770538b8164ca709ad73d4aea1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1ad3770538b8164ca709ad73d4aea1d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#ae1ad3770538b8164ca709ad73d4aea1d">isLeaf</a> ()</td></tr>
 <tr class="memdesc:ae1ad3770538b8164ca709ad73d4aea1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true iff this is a leaf node with no children. <br/></td></tr>
@@ -113,6 +112,20 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a39d0e987f0ca8215e54d1d17b79e8198"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a39d0e987f0ca8215e54d1d17b79e8198">bestAction</a> ()</td></tr>
 <tr class="memdesc:a39d0e987f0ca8215e54d1d17b79e8198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current best action for the next step.  <a href="#a39d0e987f0ca8215e54d1d17b79e8198"></a><br/></td></tr>
 <tr class="separator:a39d0e987f0ca8215e54d1d17b79e8198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfba04519f9e009a2850f815464e82ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfba04519f9e009a2850f815464e82ac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#abfba04519f9e009a2850f815464e82ac">vValue</a> ()</td></tr>
+<tr class="memdesc:abfba04519f9e009a2850f815464e82ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the expected value for this tree. <br/></td></tr>
+<tr class="separator:abfba04519f9e009a2850f815464e82ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753e3c07fb8521a573af6e091ebfd93d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a753e3c07fb8521a573af6e091ebfd93d">qValue</a> (int action)</td></tr>
+<tr class="memdesc:a753e3c07fb8521a573af6e091ebfd93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Q-value for a given action.  <a href="#a753e3c07fb8521a573af6e091ebfd93d"></a><br/></td></tr>
+<tr class="separator:a753e3c07fb8521a573af6e091ebfd93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab65c269c7085b8b201274a47b4c5a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab65c269c7085b8b201274a47b4c5a2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#acab65c269c7085b8b201274a47b4c5a2">numOfNodes</a> ()</td></tr>
+<tr class="memdesc:acab65c269c7085b8b201274a47b4c5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of nodes in the tree with this node as its root. <br/></td></tr>
+<tr class="separator:acab65c269c7085b8b201274a47b4c5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef9071df758c995d90592128b8d9093"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a8ef9071df758c995d90592128b8d9093">maxDepth</a> (int parentDepth=0)</td></tr>
+<tr class="memdesc:a8ef9071df758c995d90592128b8d9093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum depth of the tree with this node as its root.  <a href="#a8ef9071df758c995d90592128b8d9093"></a><br/></td></tr>
+<tr class="separator:a8ef9071df758c995d90592128b8d9093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int N_ACTIONS&gt;<br/>
@@ -126,7 +139,42 @@ class mcts::UCTreeNode&lt; N_ACTIONS &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a92759d401e1115b691b92652857c8b99"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N_ACTIONS&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::<a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>inGamma</em> = <code><a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">UCTreeNode</a> leaf node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">inGamma</td><td>discount factor for future rewards. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a39d0e987f0ca8215e54d1d17b79e8198"></a>
 <div class="memitem">
 <div class="memproto">
@@ -183,13 +231,83 @@ template&lt;int N_ACTIONS&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a8ef9071df758c995d90592128b8d9093"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N_ACTIONS&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::maxDepth </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>parentDepth</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the maximum depth of the tree with this node as its root. </p>
+<p>The <code>parentDepth</code> parameter specifies the depth of the parent node for recursion purposes. When called externally with this node as the true root of the tree, it is usually sufficient to leave this parameter with its default value of 0. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parentDepth</td><td>depth of parent node. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a753e3c07fb8521a573af6e091ebfd93d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N_ACTIONS&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::qValue </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the Q-value for a given action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>the index of the action whose value should be returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>action</code> must be between 0 and <code>N_ACTIONS</code> (the number of actions). </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="_tree_node_8h_source.html">TreeNode.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 3 2012 13:22:24 for MCTS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 4 2012 09:11:44 for MCTS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>
