@@ -248,12 +248,14 @@ public:
       // Update the statistics for each node along the path using the
       // discounted value. 
       //***********************************************************************
+      int count=0;
       while(!visited.empty())
       {
+         pCur = visited.top();       // get the current node in the path
          pCur->updateStats(value);   // update statistics
-         pCur = visited.top(); // get the previous node in the path
-         visited.pop();              // remove the previous node from the stack
+         visited.pop();              // remove the current node from the stack
          value *= gamma_i;           // discount the value
+         count++;
       }
 
    } // iterate
@@ -324,7 +326,7 @@ public:
    /**
     * Returns the expected value for this tree.
     */
-   int vValue()
+   double vValue()
    {
       return totValue_i/nVisits_i;
    }
@@ -334,7 +336,7 @@ public:
     * @param[in] action the index of the action whose value should be returned.
     * @pre \c action must be between 0 and \c N_ACTIONS (the number of actions).
     */
-   int qValue(int action)
+   double qValue(int action)
    {
       assert(0<=action);
       assert(N_ACTIONS>action);

@@ -44,6 +44,35 @@ int main()
       std::cout << "Max Depth: " << maxDepth << std::endl;
 
       //************************************************************************
+      // Figure out the true best action
+      //************************************************************************
+      int correctAction = 0;
+      double bestQ = -std::numeric_limits<double>::max();
+      for(int k=0; k<N_ACTIONS; ++k)
+      {
+         double curVal = tree.qValue(k);
+         if(bestQ<=curVal)
+         {
+            bestQ=curVal;
+            correctAction = k;
+         }
+      }
+
+      //************************************************************************
+      // Check that the reported best action is correct
+      //************************************************************************
+      if(correctAction!=bestAction)
+      {
+         std::cout << "Wrong best action - should be: " << correctAction
+            << std::endl;
+         return EXIT_FAILURE;
+      }
+      else
+      {
+         std::cout << "Correct best action" << std::endl;
+      }
+
+      //************************************************************************
       // Check that the number of nodes is correct (this at least is
       // predicable, because we expand by N_ACTIONS on each iteration).
       //************************************************************************
