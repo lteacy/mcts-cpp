@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>MCTS: mcts::UCTreeNode&lt; N_ACTIONS &gt; Class Template Reference</title>
+<title>MCTS: mcts::UCTreeNode&lt; N_ACTIONS, URand &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmcts_1_1_u_c_tree_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">mcts::UCTreeNode&lt; N_ACTIONS &gt; Class Template Reference</div>  </div>
+<div class="title">mcts::UCTreeNode&lt; N_ACTIONS, URand &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -99,62 +99,84 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92759d401e1115b691b92652857c8b99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a92759d401e1115b691b92652857c8b99">UCTreeNode</a> (double inGamma=<a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a>)</td></tr>
-<tr class="memdesc:a92759d401e1115b691b92652857c8b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">UCTreeNode</a> leaf node.  <a href="#a92759d401e1115b691b92652857c8b99"></a><br/></td></tr>
-<tr class="separator:a92759d401e1115b691b92652857c8b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ad3770538b8164ca709ad73d4aea1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1ad3770538b8164ca709ad73d4aea1d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#ae1ad3770538b8164ca709ad73d4aea1d">isLeaf</a> ()</td></tr>
-<tr class="memdesc:ae1ad3770538b8164ca709ad73d4aea1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true iff this is a leaf node with no children. <br/></td></tr>
-<tr class="separator:ae1ad3770538b8164ca709ad73d4aea1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6354c481bdff13bccc180c9487769ff4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a6354c481bdff13bccc180c9487769ff4">iterate</a> ()</td></tr>
-<tr class="memdesc:a6354c481bdff13bccc180c9487769ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs one iteration of the MCTS algorithm, taking this to be the root node.  <a href="#a6354c481bdff13bccc180c9487769ff4"></a><br/></td></tr>
-<tr class="separator:a6354c481bdff13bccc180c9487769ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d0e987f0ca8215e54d1d17b79e8198"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a39d0e987f0ca8215e54d1d17b79e8198">bestAction</a> ()</td></tr>
-<tr class="memdesc:a39d0e987f0ca8215e54d1d17b79e8198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current best action for the next step.  <a href="#a39d0e987f0ca8215e54d1d17b79e8198"></a><br/></td></tr>
-<tr class="separator:a39d0e987f0ca8215e54d1d17b79e8198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfba04519f9e009a2850f815464e82ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfba04519f9e009a2850f815464e82ac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#abfba04519f9e009a2850f815464e82ac">vValue</a> ()</td></tr>
-<tr class="memdesc:abfba04519f9e009a2850f815464e82ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the expected value for this tree. <br/></td></tr>
-<tr class="separator:abfba04519f9e009a2850f815464e82ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a753e3c07fb8521a573af6e091ebfd93d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a753e3c07fb8521a573af6e091ebfd93d">qValue</a> (int action)</td></tr>
-<tr class="memdesc:a753e3c07fb8521a573af6e091ebfd93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Q-value for a given action.  <a href="#a753e3c07fb8521a573af6e091ebfd93d"></a><br/></td></tr>
-<tr class="separator:a753e3c07fb8521a573af6e091ebfd93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab65c269c7085b8b201274a47b4c5a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acab65c269c7085b8b201274a47b4c5a2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#acab65c269c7085b8b201274a47b4c5a2">numOfNodes</a> ()</td></tr>
-<tr class="memdesc:acab65c269c7085b8b201274a47b4c5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of nodes in the tree with this node as its root. <br/></td></tr>
-<tr class="separator:acab65c269c7085b8b201274a47b4c5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ef9071df758c995d90592128b8d9093"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a8ef9071df758c995d90592128b8d9093">maxDepth</a> (int parentDepth=0)</td></tr>
-<tr class="memdesc:a8ef9071df758c995d90592128b8d9093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum depth of the tree with this node as its root.  <a href="#a8ef9071df758c995d90592128b8d9093"></a><br/></td></tr>
-<tr class="separator:a8ef9071df758c995d90592128b8d9093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e03ad3766d5463b4980597f3d3185d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a80e03ad3766d5463b4980597f3d3185d">UCTreeNode</a> (double inGamma=<a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a>, URand inRand=URand())</td></tr>
+<tr class="memdesc:a80e03ad3766d5463b4980597f3d3185d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classmcts_1_1_u_c_tree_node.html" title="Represents a node in a UCT tree.">UCTreeNode</a> leaf node.  <a href="#a80e03ad3766d5463b4980597f3d3185d"></a><br/></td></tr>
+<tr class="separator:a80e03ad3766d5463b4980597f3d3185d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a805ce67e9bb1d626ab1dd91d99957922"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a805ce67e9bb1d626ab1dd91d99957922">UCTreeNode</a> (const <a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> &amp;tree)</td></tr>
+<tr class="memdesc:a805ce67e9bb1d626ab1dd91d99957922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a805ce67e9bb1d626ab1dd91d99957922"></a><br/></td></tr>
+<tr class="separator:a805ce67e9bb1d626ab1dd91d99957922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83226d61b524db3b9f174cfa08e9c105"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a83226d61b524db3b9f174cfa08e9c105">operator=</a> (const <a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> &amp;tree)</td></tr>
+<tr class="memdesc:a83226d61b524db3b9f174cfa08e9c105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment.  <a href="#a83226d61b524db3b9f174cfa08e9c105"></a><br/></td></tr>
+<tr class="separator:a83226d61b524db3b9f174cfa08e9c105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1532eb886217268767f3931b6f8cef71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1532eb886217268767f3931b6f8cef71"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a1532eb886217268767f3931b6f8cef71">isLeaf</a> () const </td></tr>
+<tr class="memdesc:a1532eb886217268767f3931b6f8cef71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true iff this is a leaf node with no children. <br/></td></tr>
+<tr class="separator:a1532eb886217268767f3931b6f8cef71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9866fc991393879f98465d138f06227d"><td class="memTemplParams" colspan="2">template&lt;class Generator &gt; </td></tr>
+<tr class="memitem:a9866fc991393879f98465d138f06227d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a9866fc991393879f98465d138f06227d">iterate</a> (Generator mdp)</td></tr>
+<tr class="memdesc:a9866fc991393879f98465d138f06227d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs one iteration of the MCTS algorithm, taking this to be the root node.  <a href="#a9866fc991393879f98465d138f06227d"></a><br/></td></tr>
+<tr class="separator:a9866fc991393879f98465d138f06227d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20410954053dd79aaf28ebbe076932bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a20410954053dd79aaf28ebbe076932bf">bestAction</a> ()</td></tr>
+<tr class="memdesc:a20410954053dd79aaf28ebbe076932bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current best action for the next step.  <a href="#a20410954053dd79aaf28ebbe076932bf"></a><br/></td></tr>
+<tr class="separator:a20410954053dd79aaf28ebbe076932bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ed97b3508117f5a5f12f4827a59ce4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22ed97b3508117f5a5f12f4827a59ce4"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a22ed97b3508117f5a5f12f4827a59ce4">vValue</a> () const </td></tr>
+<tr class="memdesc:a22ed97b3508117f5a5f12f4827a59ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the expected value for this tree. <br/></td></tr>
+<tr class="separator:a22ed97b3508117f5a5f12f4827a59ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38bcae86108217e6bd8aa40edb2155b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#af38bcae86108217e6bd8aa40edb2155b">qValue</a> (int action) const </td></tr>
+<tr class="memdesc:af38bcae86108217e6bd8aa40edb2155b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Q-value for a given action.  <a href="#af38bcae86108217e6bd8aa40edb2155b"></a><br/></td></tr>
+<tr class="separator:af38bcae86108217e6bd8aa40edb2155b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9284718f20fce9ce27bcf3b3a6c00aaf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9284718f20fce9ce27bcf3b3a6c00aaf"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#a9284718f20fce9ce27bcf3b3a6c00aaf">numOfNodes</a> () const </td></tr>
+<tr class="memdesc:a9284718f20fce9ce27bcf3b3a6c00aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of nodes in the tree with this node as its root. <br/></td></tr>
+<tr class="separator:a9284718f20fce9ce27bcf3b3a6c00aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cac121106bc9ca8fd0327bb5069e93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#ae6cac121106bc9ca8fd0327bb5069e93">maxDepth</a> (int parentDepth=0) const </td></tr>
+<tr class="memdesc:ae6cac121106bc9ca8fd0327bb5069e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum depth of the tree with this node as its root.  <a href="#ae6cac121106bc9ca8fd0327bb5069e93"></a><br/></td></tr>
+<tr class="separator:ae6cac121106bc9ca8fd0327bb5069e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8409836955411a7c9805ffb3e582a53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8409836955411a7c9805ffb3e582a53"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmcts_1_1_u_c_tree_node.html#ab8409836955411a7c9805ffb3e582a53">~UCTreeNode</a> ()</td></tr>
+<tr class="memdesc:ab8409836955411a7c9805ffb3e582a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor deletes all child nodes in addition to this one. <br/></td></tr>
+<tr class="separator:ab8409836955411a7c9805ffb3e582a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int N_ACTIONS&gt;<br/>
-class mcts::UCTreeNode&lt; N_ACTIONS &gt;</h3>
+<div class="textblock"><h3>template&lt;int N_ACTIONS, class URand = SimpleURand&gt;<br/>
+class mcts::UCTreeNode&lt; N_ACTIONS, URand &gt;</h3>
 
 <p>Represents a node in a UCT tree. </p>
 <p>This provides the main data structure and implementation of the UCT (Upper Confidence Tree) algorithm. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N_ACTIONS</td><td>the number of actions in the action domain. </td></tr>
+    <tr><td class="paramname">URand</td><td>class used to generate uniform random numbers in range [0,1). This is used internally during selection and rollout. </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a92759d401e1115b691b92652857c8b99"></a>
+<a class="anchor" id="a80e03ad3766d5463b4980597f3d3185d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int N_ACTIONS&gt; </div>
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::<a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> </td>
+          <td class="memname"><a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::<a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>inGamma</em> = <code><a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a></code></td><td>)</td>
+          <td class="paramname"><em>inGamma</em> = <code><a class="el" href="namespacemcts.html#a878f45a30468cfd0a890e6011421ea10">DEFAULT_GAMMA</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">URand&#160;</td>
+          <td class="paramname"><em>inRand</em> = <code>URand()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -168,6 +190,42 @@ template&lt;int N_ACTIONS&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">inGamma</td><td>discount factor for future rewards. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">inRand</td><td>a uniform random number generated used for selection and rollout. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a805ce67e9bb1d626ab1dd91d99957922"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::<a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a>&lt; N_ACTIONS, URand &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<p>Performs a deep copy, including all children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tree</td><td>the tree to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -175,17 +233,17 @@ template&lt;int N_ACTIONS&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a39d0e987f0ca8215e54d1d17b79e8198"></a>
+<a class="anchor" id="a20410954053dd79aaf28ebbe076932bf"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int N_ACTIONS&gt; </div>
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::bestAction </td>
+          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::bestAction </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -203,19 +261,22 @@ template&lt;int N_ACTIONS&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6354c481bdff13bccc180c9487769ff4"></a>
+<a class="anchor" id="a9866fc991393879f98465d138f06227d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int N_ACTIONS&gt; </div>
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
+<div class="memtemplate">
+template&lt;class Generator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::iterate </td>
+          <td class="memname">void <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::iterate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">Generator&#160;</td>
+          <td class="paramname"><em>mdp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -227,25 +288,37 @@ template&lt;int N_ACTIONS&gt; </div>
 </div><div class="memdoc">
 
 <p>Performs one iteration of the MCTS algorithm, taking this to be the root node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mdp</td><td>A number generator which returns a reward for a given action. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">in]</td><td>Generator Functor type which overloads the () operator by returning a random reward for a given action index. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section post"><dt>Postcondition</dt><dd>the depth of the current best path from this node to the top of the tree will be expanded by one. The value of all nodes along this path will also be updated. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a8ef9071df758c995d90592128b8d9093"></a>
+<a class="anchor" id="ae6cac121106bc9ca8fd0327bb5069e93"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int N_ACTIONS&gt; </div>
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::maxDepth </td>
+          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::maxDepth </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>parentDepth</em> = <code>0</code></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -266,21 +339,56 @@ template&lt;int N_ACTIONS&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a753e3c07fb8521a573af6e091ebfd93d"></a>
+<a class="anchor" id="a83226d61b524db3b9f174cfa08e9c105"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int N_ACTIONS&gt; </div>
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS &gt;::qValue </td>
+          <td class="memname"><a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a>&amp; <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmcts_1_1_u_c_tree_node.html">UCTreeNode</a>&lt; N_ACTIONS, URand &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment. </p>
+<p>Performs a deep copy, including all children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tree</td><td>the tree to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af38bcae86108217e6bd8aa40edb2155b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N_ACTIONS, class URand  = SimpleURand&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classmcts_1_1_u_c_tree_node.html">mcts::UCTreeNode</a>&lt; N_ACTIONS, URand &gt;::qValue </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>action</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -307,7 +415,7 @@ template&lt;int N_ACTIONS&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 4 2012 09:11:44 for MCTS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 4 2012 15:27:17 for MCTS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>
