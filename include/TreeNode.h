@@ -9,6 +9,7 @@
 #include <cassert>
 #include <limits>
 #include <stack>
+#include <iostream>
 
 /**
  * Namespace for all public functions and types defined in the MCTS library.
@@ -21,6 +22,11 @@ namespace mcts {
 const double EPSILON = 1e-6;
 
 /**
+ * Default discount factor for future rewards.
+ */
+const double DEFAULT_GAMMA = 0.9;
+
+/**
  * Represents a node in a UCT tree. This provides the main data structure and
  * implementation of the UCT (Upper Confidence Tree) algorithm.
  * @tparam N_ACTIONS the number of actions in the action domain.
@@ -28,7 +34,7 @@ const double EPSILON = 1e-6;
 template<int N_ACTIONS> class UCTreeNode
 {
 private: 
-   
+
    /**
     * Array of pointers (one per action) to all children of this node.
     */
@@ -52,6 +58,11 @@ private:
    double totValue_i;
 
    /**
+    * Discount factor for future rewards.
+    */
+   double gamma_i;
+
+   /**
     * Selects the next child to explore using UCB.
     * @pre This must not be a leaf node.
     * @returns a pointer to the best child of this node to explore next.
@@ -69,7 +80,7 @@ private:
       // to its lowest possible value.
       //***********************************************************************
       UCTreeNode* pSelected = 0;
-      double bestValue = -numeric_limits<double>::max();
+      double bestValue = -std::numeric_limits<double>::max();
 
       //***********************************************************************
       // For each child node
@@ -135,6 +146,7 @@ private:
       // Otherwise, we set the leaf flag to false (to indicate that this is
       // no longer a leaf node) and construct a new child for each action.
       //***********************************************************************
+      isLeaf_i = false;
       for (int k=0; k<N_ACTIONS; ++k)
       {
          vpChildren_i[k] = new UCTreeNode();
@@ -169,8 +181,10 @@ public:
 
    /**
     * Construct a new UCTreeNode leaf node.
+    * @param[in] inGamma discount factor for future rewards.
     */
-   UCTreeNode() : isLeaf_i(true), nVisits_i(0), totValue_i(0)
+   UCTreeNode(double inGamma=DEFAULT_GAMMA)
+      : isLeaf_i(true), nVisits_i(0), totValue_i(0), gamma_i(inGamma)
    {
       //***********************************************************************
       // Since this is a leaf node with no children, all child pointers
@@ -214,8 +228,8 @@ public:
       //***********************************************************************
       while (!pCur->isLeaf())
       {
-         cur = pCur->selectChild();
-         visited.push(cur);
+         pCur = pCur->selectChild();
+         visited.push(pCur);
       }
 
       //***********************************************************************
@@ -237,7 +251,7 @@ public:
       while(!visited.empty())
       {
          pCur->updateStats(value);   // update statistics
-         pCur = pCur->visited.top(); // get the previous node in the path
+         pCur = visited.top(); // get the previous node in the path
          visited.pop();              // remove the previous node from the stack
          value *= gamma_i;           // discount the value
       }
@@ -264,7 +278,7 @@ public:
       // to its lowest possible value.
       //***********************************************************************
       int selected = 0;
-      double bestValue = -numeric_limits<double>::max();
+      double bestValue = -std::numeric_limits<double>::max();
 
       //***********************************************************************
       // For each child node
@@ -307,7 +321,126 @@ public:
 
    } // bestAction
 
+   /**
+    * Returns the expected value for this tree.
+    */
+   int vValue()
+   {
+      return totValue_i/nVisits_i;
+   }
+
+   /**
+    * Returns the Q-value for a given action.
+    * @param[in] action the index of the action whose value should be returned.
+    * @pre \c action must be between 0 and \c N_ACTIONS (the number of actions).
+    */
+   int qValue(int action)
+   {
+      assert(0<=action);
+      assert(N_ACTIONS>action);
+      return vValue() + gamma_i * vpChildren_i[action]->vValue();
+   }
+
+   /**
+    * Counts the number of nodes in the tree with this node as its root.
+    */
+   int numOfNodes()
+   {
+      //***********************************************************************
+      // If this is a leaf node, then there is only one node in the tree
+      //***********************************************************************
+      if(isLeaf_i)
+      {
+         return 1;
+      }
+
+      //***********************************************************************
+      // Otherwise, we have to count the number of nodes in each subtree
+      //***********************************************************************
+      int result = 1;
+      for(int k=0; k<N_ACTIONS; ++k)
+      {
+         result += vpChildren_i[k]->numOfNodes();
+      }
+      return result;
+
+   } // numOfNodes
+
+   /**
+    * Returns the maximum depth of the tree with this node as its root.
+    * The \c parentDepth parameter specifies the depth of the parent node
+    * for recursion purposes. When called externally with this node as the
+    * true root of the tree, it is usually sufficient to leave this parameter
+    * with its default value of 0.
+    * @param[in] parentDepth depth of parent node.
+    */
+   int maxDepth(int parentDepth=0)
+   {
+      //***********************************************************************
+      // If this is a leaf node, then the result is just the parent's depth
+      // plus 1.
+      //***********************************************************************
+      if(isLeaf_i)
+      {
+         return parentDepth + 1;
+      }
+
+      //***********************************************************************
+      // Otherwise, we return the maximum subtree depth plus 1.
+      //***********************************************************************
+      int maxDepth = 0;
+      for(int k=0; k<N_ACTIONS; ++k)
+      {
+         int curDepth = vpChildren_i[k]->maxDepth(parentDepth+1);
+         if(maxDepth < curDepth)
+         {
+            maxDepth = curDepth;
+         }
+      }
+
+      return maxDepth;
+
+   } // maxDepth
+
 }; // class UCTreeNode
+
+/**
+ * Produces a string representation of a treeNode for diagnostic purposes.
+ * Basically, just prints the vValue and the qValue for each action.
+ */
+template<int N_ACTIONS> std::ostream& operator<<
+(
+ std::ostream& out,
+ UCTreeNode<N_ACTIONS> tree
+)
+{
+
+   //**************************************************************************
+   // Print the V value
+   //**************************************************************************
+   out << "[V=" << tree.vValue();
+   
+   //**************************************************************************
+   // If this is a leaf node, then we're done.
+   //**************************************************************************
+   if(tree.isLeaf())
+   {
+      out << ']';
+      return out;
+   }
+
+   //**************************************************************************
+   // Otherwise, also print the q values for each action.
+   //**************************************************************************
+   for(int k=0; k<N_ACTIONS; ++k)
+   {
+      out << ",Q" << k << '=' << tree.qValue(k);
+   }
+   out << ']';
+
+   return out;
+
+} // operator <<
 
 } // namespace mcts
 
