@@ -2,9 +2,31 @@
  * @file mdpHarness.cpp
  * Test harness for MCTS applied to simple MDP
  */
+#include <ctime>
 #include <exception>
 #include <iostream>
 #include "TreeNode.h"
+
+/**
+ * Private module namespace.
+ */
+namespace {
+
+/**
+ * Simple uniform random number generator for testing purposes.
+ */
+struct SimpleBandit_m
+{
+   /**
+    * Generates uniform random numbers in the range [0,1).
+    */
+   double operator()(int action)
+   {
+      return static_cast<double>(rand()%RAND_MAX)/RAND_MAX;
+   }
+};
+
+} // module namespace
 
 /**
  * Test harness (not yet implmented).
@@ -15,6 +37,16 @@ int main()
 
    try
    {
+      //************************************************************************
+      // Set random seed using current time
+      //************************************************************************
+      std::srand(std::time(0));
+
+      //************************************************************************
+      // Create a simple bandit process for test purposes
+      //************************************************************************
+      SimpleBandit_m bandit;
+
       //************************************************************************
       // Try instantiate a tree node
       //************************************************************************
@@ -29,7 +61,7 @@ int main()
       {
          std::cout << "tree: " << tree << std::endl;
          std::cout << "iteration: " << k << std::endl;
-         tree.iterate();
+         tree.iterate(bandit);
       }
       std::cout << "tree: " << tree << std::endl;
 
