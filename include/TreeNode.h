@@ -249,6 +249,81 @@ public:
    }  // default constructor
 
    /**
+    * Copy constructor. Performs a deep copy, including all children.
+    * @param[in] tree the tree to copy.
+    */
+   UCTreeNode(const UCTreeNode& tree)
+      : isLeaf_i(tree.isLeaf_i), nVisits_i(tree.nVisits_i),
+        totValue_i(tree.totValue_i), gamma_i(tree.gamma_i),
+        rand_i(tree.rand_i)
+   {
+      //***********************************************************************
+      // If we've just copied a leaf node, then we're done
+      //***********************************************************************
+      if(isLeaf_i)
+      {
+         return;
+      }
+
+      //***********************************************************************
+      // Otherwise, we need to copy children as well.
+      //***********************************************************************
+      for(int k=0; k<N_ACTIONS; ++k)
+      {
+         assert(0!=tree.vpChildren_i[k]);
+         vpChildren_i[k] = new UCTreeNode(*tree.vpChildren_i[k]);
+      }
+
+   } // copy constructor
+
+   /**
+    * Copy assignment. Performs a deep copy, including all children.
+    * @param[in] tree the tree to copy.
+    */
+   UCTreeNode& operator=(const UCTreeNode& tree)
+   {
+      //***********************************************************************
+      // Delete old children if necessary
+      //***********************************************************************
+      if(!isLeaf_i)
+      {
+         for(int k=0; k<N_ACTIONS; ++k)
+         {
+            assert(0!=vpChildren_i[k]);
+            delete vpChildren_i[k];
+            vpChildren_i[k]=0;
+
+         } // for loop
+
+      } // if statement
+
+      //***********************************************************************
+      // Set all scalar members
+      //***********************************************************************
+      isLeaf_i = tree.isLeaf_i;
+      nVisits_i = tree.nVisits_i;
+      totValue_i = tree.totValue_i;
+      gamma_i = tree.gamma_i;
+      rand_i = tree.rand_i;
+
+      //***********************************************************************
+      // Copy new children if necessary
+      //***********************************************************************
+      if(!isLeaf_i)
+      {
+         for(int k=0; k<N_ACTIONS; ++k)
+         {
+            assert(0!=tree.vpChildren_i[k]);
+            assert(0==vpChildren_i[k]);
+            vpChildren_i[k] = new UCTreeNode(*tree.vpChildren[k]);
+
+         } // for loop
+
+      } // if statement
+
+   } // operator=
+
+   /**
     * Returns true iff this is a leaf node with no children.
     */
    bool isLeaf() const
